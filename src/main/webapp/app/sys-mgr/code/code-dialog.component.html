@@ -1,0 +1,140 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myCodeLabel" jhiTranslate="smartsoftApp.code.home.createOrEditLabel">Create or edit a Code</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <!--<div class="form-group" [hidden]="!code.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input typsmartsoftAppss="form-control" id="idgrsmartsoftApp                 [(ngModel)]="code.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="greesmartsoftAppe.createBy" for="field_createBy">Create By</label>
+            <input type="text" class="form-control" name="createBy" id="field_createBy"
+                [(ngModel)]="code.createBy"
+            maxlength="50" />
+            <div [hidden]="!(editForm.controls.createBy?.dirty && editForm.controls.createBy?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.createBy?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 50 }">
+                   This field cannot be longer than 50 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="smartsoftApp.code.createDate" for="field_createDate">Create Date</label>
+            <div class="d-flex">
+                <input id="field_createDate" type="datetime-local" class="form-control" name="createDate" [(ngModel)]="code.createDate"
+                  />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="smartsoftApp.code.updateBy" for="field_updateBy">Update By</label>
+            <input type="text" class="form-control" name="updateBy" id="field_updateBy"
+                [(ngModel)]="code.updateBy"
+            maxlength="50" />
+            <div [hidden]="!(editForm.controls.updateBy?.dirty && editForm.controls.updateBy?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.updateBy?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 50 }">
+                   This field cannot be longer than 50 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="smartsoftApp.code.updateDate" for="field_updateDate">Update Date</label>
+            <div class="d-flex">
+                <input id="field_updateDate" type="datetime-local" class="form-control" name="updateDate" [(ngModel)]="code.updateDate"
+                  />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="smartsoftApp.code.version" for="field_version">Version</label>
+            <input type="number" class="form-control" name="version" id="field_version"
+                [(ngModel)]="code.version"
+             />
+        </div>-->
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="smartsoftApp.code.code" for="field_code">Code</label>
+            <input type="text" class="form-control" name="code" id="field_code"
+                [(ngModel)]="code.code"
+            required maxlength="30" />
+            <div [hidden]="!(editForm.controls.code?.dirty && editForm.controls.code?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.code?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.code?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 30 }">
+                   This field cannot be longer than 30 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="smartsoftApp.code.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                [(ngModel)]="code.name"
+            required maxlength="50" />
+            <div [hidden]="!(editForm.controls.name?.dirty && editForm.controls.name?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.name?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.name?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 50 }">
+                   This field cannot be longer than 50 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="smartsoftApp.code.seqNum" for="field_seqNum">Seq Num</label>
+            <input type="number" class="form-control" name="seqNum" id="field_seqNum"
+                [(ngModel)]="code.seqNum"
+            required />
+            <div [hidden]="!(editForm.controls.seqNum?.dirty && editForm.controls.seqNum?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.seqNum?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.seqNum?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="smartsoftApp.code.description" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                [(ngModel)]="code.description"
+            maxlength="500" />
+            <div [hidden]="!(editForm.controls.description?.dirty && editForm.controls.description?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.description?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 500 }">
+                   This field cannot be longer than 500 characters.
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label jhiTranslate="smartsoftApp.code.codeGroup" for="field_codeGroup">Code Group</label>
+            <select class="form-control" id="field_codeGroup" name="codeGroup" [(ngModel)]="code.codeGroupId"  required>
+                <option [ngValue]="codeGroupOption.id" *ngFor="let codeGroupOption of codegroups; trackBy: trackCodeGroupById">{{codeGroupOption.name}}</option>
+            </select>
+        </div>
+        <div [hidden]="!(editForm.controls.codeGroup?.dirty && editForm.controls.codeGroup?.invalid)">
+            <small class="form-text text-danger"
+                [hidden]="!editForm.controls.codeGroup?.errors?.required" jhiTranslate="entity.validation.required">
+                This field is required.
+            </small>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,30 @@
+{
+    "smartsoftApp": {
+        "permission" : {
+            "home": {
+                "title": "权限列表",
+                "createLabel": "新建",
+                "createOrEditLabel": "创建或更新"
+            },
+            "created": "权限 {{ param }} 创建成功",
+            "updated": "权限 {{ param }} 更新成功",
+            "deleted": "权限 {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除权限 {{ id }}?"
+            },
+            "detail": {
+                "title": "权限"
+            },
+            "createBy": "创建者",
+            "createDate": "创建日期",
+            "updateBy": "更新者",
+            "updateDate": "更新日期",
+            "version": "版本号",
+            "tenantId": "Tenant Id",
+            "name": "名称",
+            "permissionGroup": "权限组",
+            "code": "编码",
+            "resource": "资源"
+        }
+    }
+}

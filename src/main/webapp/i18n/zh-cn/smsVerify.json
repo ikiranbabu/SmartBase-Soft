@@ -1,0 +1,31 @@
+{
+    "smartsoftApp": {
+        "smsVerify" : {
+            "home": {
+                "title": "短信",
+                "createLabel": "新建",
+                "createOrEditLabel": "创建或更新"
+            },
+            "created": "短信 {{ param }} 创建成功",
+            "updated": "短信 {{ param }} 更新成功",
+            "deleted": "短信 {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除手机号码 {{ mobile }}?"
+            },
+            "detail": {
+                "title": "短信"
+            },
+            "createBy": "创建者",
+            "createDate": "创建日期",
+            "updateBy": "更新者",
+            "updateDate": "更新日期",
+            "version": "版本号",
+            "tenantId": "Tenant Id",
+            "mobile": "手机号码",
+            "verifyCode": "短信编码",
+            "verifyTime": "短信次数",
+            "maxTryTimes": "最大次数",
+            "status": "状态"
+        }
+    }
+}

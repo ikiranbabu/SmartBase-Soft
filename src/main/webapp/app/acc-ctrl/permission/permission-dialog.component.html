@@ -1,0 +1,59 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myPermissionLabel" jhiTranslate="smartsoftApp.role.home.createOrEditLabel">Create or edit a Permission</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!permission.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="permission.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_name" jhiTranslate="smartsoftApp.permission.name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                   [(ngModel)]="permission.name"
+            />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_code" jhiTranslate="smartsoftApp.permission.code">Code</label>
+            <input type="text" class="form-control" name="code" id="field_code"
+                   [(ngModel)]="permission.code"
+                   required />
+            <div [hidden]="!(editForm.controls.code?.dirty && editForm.controls.code?.invalid)">
+                <small class="form-text text-danger"
+                       [hidden]="!editForm.controls.code?.errors?.required">
+                    This field is required.
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label jhiTranslate="smartsoftApp.permission.resource">Resource</label>
+            <!--<select class="form-control" id="field_resource" multiple name="resource" [(ngModel)]="permission.resources">-->
+            <!--<option [ngValue]="getSelected(permission.resources, resourceOption)" *ngFor="let resourceOption of resources; trackBy: trackResourceById">{{resourceOption.name}}</option>-->
+            <!--</select>-->
+            <p-multiSelect styleClass="form-control" defaultLabel="--请选择--" name="resource" [options]="resourceOptions"
+                           [(ngModel)]="resourceIds"></p-multiSelect>
+        </div>
+        <div class="form-group">
+            <label for="field_permissionGroup" jhiTranslate="smartsoftApp.permission.permissionGroup">Permission Group</label>
+            <select class="form-control" id="field_permissionGroup" name="permissionGroup" [(ngModel)]="permission.permissionGroupId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="permissionGroupOption.id" *ngFor="let permissionGroupOption of permissiongroups; trackBy: trackPermissionGroupById">{{permissionGroupOption.name}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>
+

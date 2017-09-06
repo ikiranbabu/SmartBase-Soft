@@ -1,0 +1,53 @@
+
+<div *ngIf="codeGroup">
+    <h2><span jhiTranslate="smartsoftApp.codeGroup.detail.title">Code Group</span> {{codeGroup.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="smartsoftApp.codeGroup.createBy">Create By</span></dt>
+        <dd>
+            <span>{{codeGroup.createBy}}</span>
+        </dd>
+        <dt><span jhiTranslate="smartsoftApp.codeGroup.createDate">Create Date</span></dt>
+        <dd>
+            <span>{{codeGroup.createDate | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="smartsoftApp.codeGroup.updateBy">Update By</span></dt>
+        <dd>
+            <span>{{codeGroup.updateBy}}</span>
+        </dd>
+        <dt><span jhiTranslate="smartsoftApp.codeGroup.updateDate">Update Date</span></dt>
+        <dd>
+            <span>{{codeGroup.updateDate | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="smartsoftApp.codeGroup.version">Version</span></dt>
+        <dd>
+            <span>{{codeGroup.version}}</span>
+        </dd>
+        <dt><span jhiTranslate="smartsoftApp.codeGroup.code">Code</span></dt>
+        <dd>
+            <span>{{codeGroup.code}}</span>
+        </dd>
+        <dt><span jhiTranslate="smartsoftApp.codeGroup.name">Name</span></dt>
+        <dd>
+            <span>{{codeGroup.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="smartsoftApp.codeGroup.description">Description</span></dt>
+        <dd>
+            <span>{{codeGroup.description}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/app/sys-mgr/',  { outlets: { popup: 'code-group/'+ codeGroup.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

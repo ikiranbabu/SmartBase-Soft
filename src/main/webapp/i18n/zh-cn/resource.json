@@ -1,0 +1,30 @@
+{
+    "smartsoftApp": {
+        "resource" : {
+            "home": {
+                "title": "资源列表",
+                "createLabel": "新建",
+                "createOrEditLabel": "创建或更新"
+            },
+            "created": "资源 {{ param }} 创建成功",
+            "updated": "资源 {{ param }} 更新成功",
+            "deleted": "资源 {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除资源 {{ name }}?"
+            },
+            "detail": {
+                "title": "资源"
+            },
+            "createBy": "创建者",
+            "createDate": "创建日期",
+            "updateBy": "更新者",
+            "updateDate": "更新日期",
+            "version": "版本号",
+            "tenantId": "Tenant Id",
+            "name": "名称",
+            "requestMethod": "请求方法",
+            "url": "请求路径"
+
+        }
+    }
+}

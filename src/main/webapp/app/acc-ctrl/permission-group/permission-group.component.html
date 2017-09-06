@@ -1,0 +1,67 @@
+<div>
+    <h2>
+        <span jhiTranslate="smartsoftApp.permissionGroup.home.title">Permission Groups</span>
+        <button class="btn btn-primary float-right create-permission-group" [routerLink]="['/app/acc-ctrl/', { outlets: { popup: ['permission-group-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="smartsoftApp.permissionGroup.home.createLabel">
+            Create new Permission Group
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="permissionGroups">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+                <th><span jhiTranslate="global.field.seq">Seq</span> <span></span></th>
+                <th ><span jhiTranslate="smartsoftApp.permissionGroup.name">Name</span> <span></span></th>
+                <th ><span jhiTranslate="smartsoftApp.permissionGroup.description">Description</span> <span ></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let permissionGroup of permissionGroups ; index as i; trackBy: trackId">
+                <!--<td><a [routerLink]="['../permission-group', permissionGroup.id ]">{{permissionGroup.id}}</a></td>-->
+                <td>{{ i+1 }}</td>
+                <td>{{permissionGroup.name}}</td>
+                <td>{{permissionGroup.description}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../permission-group', permissionGroup.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/app/acc-ctrl/', { outlets: { popup: 'permission-group/'+ permissionGroup.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/app/acc-ctrl/', { outlets: { popup: 'permission-group/'+ permissionGroup.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+        <div *ngIf="permissionGroups && permissionGroups.length">
+            <div class="row justify-content-center">
+                <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+            </div>
+            <div class="row justify-content-center">
+                <ngb-pagination [collectionSize]="totalItems" [(page)]="page" (pageChange)="loadPage(page)"></ngb-pagination>
+            </div>
+        </div>
+</div>

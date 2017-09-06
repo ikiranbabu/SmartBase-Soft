@@ -1,0 +1,92 @@
+<div class="container">
+    <main id="content" class="widget-login-container" role="main">
+        <div class="row">
+            <div class="col-xl-4 col-md-6 col-xs-10 offset-xl-4 offset-md-3 offset-xs-1">
+                <h5 class="widget-login-logo animated fadeInUp">
+                    <i class="fa fa-circle text-gray"></i>
+                    Smartsoft
+                    <i class="fa fa-circle text-warning"></i>
+                </h5>
+                <section class="widget widget-login animated fadeInUp">
+                    <header>
+                        <!--<h3>Login to your App</h3>-->
+                        <h3><img src="/content/images/login-img.svg" alt=""></h3>
+                    </header>
+                    <div class="widget-body">
+                        <!--<p class="widget-login-info">-->
+                            <!--Use Facebook, Twitter or your email to sign in.-->
+                        <!--</p>-->
+                        <div class="alert alert-danger" *ngIf="authenticationError">
+                            <strong>登录失败</strong>
+                        </div>
+                        <p class="widget-login-info">
+                            <!--Don't have an account? Sign up now!-->
+                        </p>
+                        <form name="loginForm" #loginForm="ngForm" class="login-form mt-lg" role="form" (ngSubmit)="login()">
+                            <div class="form-group">
+                                <!--<label for="username">Login</label>-->
+                                <input type="text" class="form-control" name="username" id="username" placeholder="用户名"
+                                       required [(ngModel)]="username">
+                                <div [hidden]="!(loginForm.controls.username?.dirty && loginForm.controls.username?.invalid)">
+                                    <small class="form-text text-danger"
+                                           [hidden]="!loginForm.controls.username?.errors?.required">
+                                        This field is required.
+                                    </small>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <!--<label for="password">Password</label>-->
+                                <input type="password"
+                                       class="form-control"
+                                       name="password"
+                                       id="password"
+                                       placeholder="密码"
+                                       required
+                                       [(ngModel)]="password">
+                            </div>
+                            <div [hidden]="!(loginForm.controls.password?.dirty && loginForm.controls.password?.invalid)">
+                                <small class="form-text text-danger"
+                                       [hidden]="!loginForm.controls.password?.errors?.required">
+                                    This field is required.
+                                </small>
+                            </div>
+                            <!--<div class="form-check">-->
+                                <!--<label class="form-check-label" for="rememberMe">-->
+                                    <!--<input class="form-check-input" type="checkbox" name="rememberMe" id="rememberMe" [(ngModel)]="rememberMe" checked>-->
+                                    <!--<span>自动登录</span>-->
+                                <!--</label>-->
+                            <!--</div>-->
+                            <!--<button type="submit" class="btn btn-primary" style="width:100%">登录</button>-->
+
+                            <div class="clearfix">
+                                <div class="btn-toolbar float-xs-right m-t-1">
+                                    <button type="button" class="btn btn-secondary btn-sm" (click)="register()">注册新账号</button>
+                                    <button type="submit" [disabled]="loginForm.form.invalid || isRequesting" class="btn btn-inverse btn-sm" >登录</button>
+                                </div>
+                            </div>
+                            <div class="row m-t-1">
+                                <div class="col-md-6 push-md-6">
+                                    <div class="clearfix">
+                                        <div class="abc-checkbox widget-login-info float-xs-right">
+                                            <input type="checkbox"  name="rememberMe" id="rememberMe" [(ngModel)]="rememberMe">
+                                            <label for="rememberMe">记住我 </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 pull-md-6">
+                                    <a class="mr-n-lg widget-login-info"  (click)="requestResetPassword()">忘记密码?</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+    <footer class="page-footer">
+        2017 &copy; App. Admin Dashboard Template.
+    </footer>
+    <div class="full-page-background background-image"></div>
+</div>
+<loading-spinner [isRunning]="isRequesting"></loading-spinner>

@@ -1,0 +1,29 @@
+{
+    "smartsoftApp": {
+        "codeGroup" : {
+            "home": {
+                "title": "编码组",
+                "createLabel": "创建",
+                "createOrEditLabel": "创建或编辑"
+            },
+            "created": "A new Code Group is created with identifier {{ param }}",
+            "updated": "A Code Group is updated with identifier {{ param }}",
+            "deleted": "A Code Group is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "你确定要删除编码组 {{ id }}?"
+            },
+            "detail": {
+                "title": "编码组"
+            },
+            "createBy": "创建者",
+            "createDate": "创建日期",
+            "updateBy": "更新者",
+            "updateDate": "更新日期",
+            "version": "版本号",
+            "tenantId": "Tenant Id",
+            "code": "编码",
+            "name": "名称",
+            "description": "描述"
+        }
+    }
+}

@@ -1,0 +1,31 @@
+body{
+    //background: yellowgreen;
+    .form-control.ui-multiselect{
+        display: block !important;
+    }
+}
+
+.float-xs-left {
+    float: left !important;
+}
+
+.float-xs-right {
+     float: right !important;
+ }
+
+.float-xs-none {
+    float: none !important;
+}
+
+.btn-toolbar {
+    .btn{
+        margin-left: 0.5rem;
+    }
+}
+
+.table td {
+    padding: 0.35rem;
+    vertical-align: middle;
+    border-top: 1px solid #eceeef;
+}
+

@@ -1,0 +1,44 @@
+
+entity Code {
+    createBy String maxlength(50),
+    createDate ZonedDateTime,
+    updateBy String maxlength(50),
+    updateDate ZonedDateTime,
+    version Integer,
+    code String required maxlength(30),
+    name String required maxlength(50),
+    seqNum Integer required,
+    description String maxlength(500)
+}
+
+
+// Set pagination options
+paginate Code with pagination
+
+entity CodeGroup {
+	createBy String maxlength(50),
+    createDate ZonedDateTime,
+    updateBy String maxlength(50),
+    updateDate ZonedDateTime,
+    version Integer,
+    code String required maxlength(30),
+    name String required maxlength(50),
+    description String maxlength(500)
+}
+
+relationship OneToMany {
+  CodeGroup{code} to Code{codeGroup(code) required}
+}
+
+// Set pagination options
+paginate CodeGroup with pagination
+
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceClass
+// Set an angular suffix
+
+// skipServer for DosCodeGroup
+// skipClient for DosCodeGroup
+

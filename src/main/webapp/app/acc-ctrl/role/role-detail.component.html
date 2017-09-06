@@ -1,0 +1,35 @@
+
+<div *ngIf="role">
+    <h2><span>Role</span> {{role.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="smartsoftApp.role.name">Name</span></dt>
+        <dd>
+            <span>{{role.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="smartsoftApp.code.description">description</span></dt>
+        <td>
+            <span>{{role.description}}</span>
+        </td>
+        <dt><span jhiTranslate="smartsoftApp.role.permission">Permission</span></dt>
+        <dd>
+            <span *ngFor="let permission of role.permissions; let last = last">
+                <a [routerLink]="['../permission', permission?.id ]">{{permission.name}}</a>{{last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/app/acc-ctrl/', { outlets: { popup: 'role/'+ role.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

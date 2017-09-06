@@ -1,0 +1,41 @@
+
+<div *ngIf="permission">
+    <h2><span>Permission</span> {{permission.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="smartsoftApp.permission.name">Name</span></dt>
+        <dd>
+            <span>{{permission.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="smartsoftApp.permission.code">Code</span></dt>
+        <dd>
+            <span>{{permission.code}}</span>
+        </dd>
+        <dt><span jhiTranslate="smartsoftApp.permission.resource">Resource</span></dt>
+        <dd>
+            <span *ngFor="let resource of permission.resources; let last = last">
+                <a [routerLink]="['/app/acc-ctrl/resource', resource?.id ]">{{resource.name}}</a>{{last ? '' : ', '}}
+            </span>
+        </dd>
+        <dt><span>Permission Group</span></dt>
+        <dd>
+            <div *ngIf="permission.permissionGroupId">
+                <a [routerLink]="['/app/acc-ctrl/permission-group', permission.permissionGroupId]">{{permission.permissionGroupName}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/app/acc-ctrl/', { outlets: { popup: 'permission/'+ permission.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

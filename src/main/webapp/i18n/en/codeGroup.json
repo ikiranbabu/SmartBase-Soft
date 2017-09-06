@@ -1,0 +1,29 @@
+{
+    "smartsoftApp": {
+        "codeGroup" : {
+            "home": {
+                "title": "Code Groups",
+                "createLabel": "Create a new Code Group",
+                "createOrEditLabel": "Create or edit a Code Group"
+            },
+            "created": "A new Code Group is created with identifier {{ param }}",
+            "updated": "A Code Group is updated with identifier {{ param }}",
+            "deleted": "A Code Group is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Code Group {{ id }}?"
+            },
+            "detail": {
+                "title": "Code Group"
+            },
+            "createBy": "Create By",
+            "createDate": "Create Date",
+            "updateBy": "Update By",
+            "updateDate": "Update Date",
+            "version": "Version",
+            "code": "Code",
+            "name": "Name",
+            "description": "Description",
+            "code": "Code"
+        }
+    }
+}

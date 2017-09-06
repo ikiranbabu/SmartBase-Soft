@@ -1,0 +1,37 @@
+/* after changing this file run 'yarn run 'yarn run webpack:build' */
+$fa-font-path: '~font-awesome/fonts';
+
+/***************************
+put Sass variables here:
+eg $input-color: red;
+****************************/
+
+//
+//$fa-font-path: '~font-awesome/fonts';
+//
+//@import "../../app/scss/variables-override";
+//@import "../../app/scss/mixins";
+//
+//@import "../../assets/bootstrap/scss/bootstrap";
+//@import 'node_modules/font-awesome/scss/font-awesome';
+////@import "../../../node_modules/glyphicons-halflings/scss/glyphicons-halflings";
+////
+////@import "../../../node_modules/pace/themes/pace-theme-flash";
+////@import "../../../node_modules/animate.css/animate";
+////@import "../../../node_modules/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox";
+//
+//@import "../../app/scss/bootstrap-override";
+//@import "../../app/scss/libs-override";
+//
+////
+//
+//
+////end custom libs
+//
+////everything below this line is required for essential styling
+//@import "../../app/scss/font";
+//@import "../../app/scss/general";
+//@import "../../app/scss/global-transitions";
+//@import "../../app/scss/base";
+//@import "../../app/scss/utils";
+

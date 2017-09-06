@@ -1,0 +1,41 @@
+
+<div *ngIf="smsVerify">
+    <h2><span jhiTranslate="smartsoftApp.smsVerify.home.title">Sms Verify</span> {{smsVerify.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="smartsoftApp.smsVerify.mobile">Mobile</span></dt>
+        <dd>
+            <span>{{smsVerify.mobile}}</span>
+        </dd>
+        <dt><span jhiTranslate="smartsoftApp.smsVerify.verifyCode">Verify Code</span></dt>
+        <dd>
+            <span>{{smsVerify.verifyCode}}</span>
+        </dd>
+        <dt><span jhiTranslate="smartsoftApp.smsVerify.verifyTime">Verify Time</span></dt>
+        <dd>
+            <span>{{smsVerify.verifyTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="smartsoftApp.smsVerify.maxTryTimes">Max Try Times</span></dt>
+        <dd>
+            <span>{{smsVerify.maxTryTimes}}</span>
+        </dd>
+        <dt><span jhiTranslate="smartsoftApp.smsVerify.status">Status</span></dt>
+        <dd>
+            <span>{{smsVerify.status}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/app/sys-mgr/', { outlets: { popup: 'sms-verify/'+ smsVerify.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

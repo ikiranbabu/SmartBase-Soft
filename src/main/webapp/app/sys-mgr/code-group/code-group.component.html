@@ -1,0 +1,78 @@
+<div>
+    <h2>
+        <span jhiTranslate="smartsoftApp.codeGroup.home.title">Code Groups</span>
+        <button class="btn btn-primary float-right create-code-group" [routerLink]="['/app/sys-mgr/',  { outlets: { popup: ['code-group-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="smartsoftApp.codeGroup.home.createLabel">
+            Create new Code Group
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="codeGroups">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="createBy"><span jhiTranslate="smartsoftApp.codeGroup.createBy">Create By</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="createDate"><span jhiTranslate="smartsoftApp.codeGroup.createDate">Create Date</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="updateBy"><span jhiTranslate="smartsoftApp.codeGroup.updateBy">Update By</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="updateDate"><span jhiTranslate="smartsoftApp.codeGroup.updateDate">Update Date</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="version"><span jhiTranslate="smartsoftApp.codeGroup.version">Version</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="code"><span jhiTranslate="smartsoftApp.codeGroup.code">Code</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="name"><span jhiTranslate="smartsoftApp.codeGroup.name">Name</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="description"><span jhiTranslate="smartsoftApp.codeGroup.description">Description</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let codeGroup of codeGroups ;trackBy: trackId">
+                <td><a [routerLink]="['../code-group', codeGroup.id ]">{{codeGroup.id}}</a></td>
+                <td>{{codeGroup.createBy}}</td>
+                <td>{{codeGroup.createDate | date:'medium'}}</td>
+                <td>{{codeGroup.updateBy}}</td>
+                <td>{{codeGroup.updateDate | date:'medium'}}</td>
+                <td>{{codeGroup.version}}</td>
+                <td>{{codeGroup.code}}</td>
+                <td>{{codeGroup.name}}</td>
+                <td>{{codeGroup.description}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../code-group', codeGroup.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/app/sys-mgr/',  { outlets: { popup: 'code-group/'+ codeGroup.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/app/sys-mgr/',  { outlets: { popup: 'code-group/'+ codeGroup.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+        <div *ngIf="codeGroups && codeGroups.length">
+            <div class="row justify-content-center">
+                <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+            </div>
+            <div class="row justify-content-center">
+                <ngb-pagination [collectionSize]="totalItems" [(page)]="page" (pageChange)="loadPage(page)"></ngb-pagination>
+            </div>
+        </div>
+</div>

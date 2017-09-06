@@ -1,0 +1,36 @@
+/***********************************/
+/**          ERROR PAGE           **/
+/***********************************/
+.error-page {
+  background-color: #ddd; }
+
+.error-container {
+  padding-top: 5%;
+  text-align: center; }
+
+.error-container > .btn {
+  padding-left: 35px;
+  padding-right: 35px; }
+
+.error-code {
+  margin: 20px;
+  font-size: 80px;
+  font-weight: normal;
+  color: #292b2c; }
+
+.error-info {
+  font-size: 20px;
+  color: #292b2c; }
+
+.error-help {
+  font-size: 14px; }
+
+.error-page .page-footer {
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  font-size: 13px;
+  color: #636c72;
+  text-align: center; }
