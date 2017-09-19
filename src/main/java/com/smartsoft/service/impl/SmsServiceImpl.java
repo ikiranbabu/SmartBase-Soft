@@ -27,7 +27,7 @@ public class SmsServiceImpl implements SmsService{
             SingleSendSmsRequest request = new SingleSendSmsRequest();
             request.setSignName("黑洞网络");//控制台创建的签名名称
             request.setTemplateCode("SMS_54280007");//控制台创建的模板CODE
-            request.setParamString("{\"code\":\""+ code +"\",\"product\":\"智软科创\"}");//短信模板中的变量；数字需要转换为字符串；个人用户每个变量长度必须小于15个字符。"
+            request.setParamString("{\"code\":\""+ code +"\",\"product\":\"公司\"}");//短信模板中的变量；数字需要转换为字符串；个人用户每个变量长度必须小于15个字符。"
             //request.setParamString("{}");
             request.setRecNum(mobile);//接收号码
             SingleSendSmsResponse httpResponse = client.getAcsResponse(request);

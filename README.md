@@ -1,4 +1,4 @@
-# 智软科创简单项目快速框架
+#简单项目快速框架
 # Smartsoft
 This application was generated using JHipster 4.3.0, you can find documentation and help at [https://jhipster.github.io/documentation-archive/v4.3.0](https://jhipster.github.io/documentation-archive/v4.3.0).
 
